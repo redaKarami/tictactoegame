@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.InteropServices;
 
 #nullable disable
 
@@ -18,7 +19,7 @@ namespace App
             bool cpuHasWon = false; //sets bool to control computer's loss and win
             bool playerHasWon = false; // same thing for the player
             boardPrinter(boardLine1, boardLine2, boardLine3); // calling the function that draws the game board
-            int userChoiceToInt = 0; //the player will input his moves with integer inputs
+            int userChoiceToInt; //the player will input his moves with integer inputs
             int cpuChoice = 0; //sets an integer for the cpu's move
 
             // a list of possible moves so its impossible to do the same move twice 
@@ -27,11 +28,8 @@ namespace App
             while (onPlay == true)
             {
                 //player always starts first
-                bool isPlayerTurn = true;
                 Console.WriteLine("Your Move :");
 
-                while (isPlayerTurn == true)
-                {
                     //making sure the player doesnt input something other than an integer
                     while (!int.TryParse(Console.ReadLine(), out userChoiceToInt))
                     {
@@ -78,10 +76,10 @@ namespace App
                         || (boardLine1[2] == "X" && boardLine2[1] == "X" && boardLine3[0] == "X")
                         || (boardLine1[0] == "X" && boardLine2[1] == "X" && boardLine3[2] == "X"))
                     {
+                        Console.Clear();
                         Console.WriteLine("You won!");
+                        boardPrinter(boardLine1, boardLine2, boardLine3);
                         playerHasWon = true;
-                        onPlay = false;
-                        break;
                     }
                     /*if you see here why i made playerHasWon and cpuHasWon booleans, it's to avoid a tie if the player
                     or the cpu wins with a full board*/
@@ -90,20 +88,12 @@ namespace App
                         && boardLine3[0] != "_" && boardLine3[1] != "_" && boardLine3[2] != "_"
                         && cpuHasWon == false && playerHasWon == false)
                     {
+                        Console.Clear();
                         Console.WriteLine("Tie !");
+                        boardPrinter(boardLine1, boardLine2, boardLine3);
                         onPlay = false;
-                        break;
                     }                   
-                    else
-                    {
-                        //player's turn has finished
-                        isPlayerTurn = false;
-                    }
-                }
-
-                // Check if the game has ended after the player's turn
-                if (!onPlay)
-                {
+                if(playerHasWon) {
                     break;
                 }
                 // cpu's turn
@@ -148,24 +138,24 @@ namespace App
                     || (boardLine1[2] == "O" && boardLine2[1] == "O" && boardLine3[0] == "O")
                     || (boardLine1[0] == "O" && boardLine2[1] == "O" && boardLine3[2] == "O"))
                 {
+                    Console.Clear();
                     Console.WriteLine("The Computer Won!");
+                    boardPrinter(boardLine1, boardLine2, boardLine3);
                     cpuHasWon = true;
-                    onPlay = false;
-                    break;
                 }
                 else if(boardLine1[0] != "_" && boardLine1[1] != "_" && boardLine1[2] != "_"
                         && boardLine2[0] != "_" && boardLine2[1] != "_" && boardLine2[2] != "_"
                         && boardLine3[0] != "_" && boardLine3[1] != "_" && boardLine3[2] != "_"
                         && cpuHasWon == false && playerHasWon == false)
                 {
+                    Console.Clear();
                     Console.WriteLine("Tie !");
+                    boardPrinter(boardLine1, boardLine2, boardLine3);
                     onPlay = false;
-                    break;
                 }
-                else
-                {
-                    //it's player's turn
-                    isPlayerTurn = true;
+
+                if(cpuHasWon) {
+                    break;
                 }
             }
         }
