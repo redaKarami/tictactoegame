@@ -24,21 +24,23 @@ namespace App
 
             // a list of possible moves so its impossible to do the same move twice 
             List<int> possibleMoves = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 }; 
+            Console.WriteLine("----------------");
             Console.WriteLine("You are X, choose from 1 to 9 to put your X");
             while (onPlay == true)
             {
                 //player always starts first
-                Console.WriteLine("Your Move :");
+                Console.WriteLine("----------------");
+                Console.Write("Your Move : ");
 
                     //making sure the player doesnt input something other than an integer
                     while (!int.TryParse(Console.ReadLine(), out userChoiceToInt))
                     {
-                        Console.WriteLine("Please input a valid move (not already made by the Player or the Computer)");
+                        Console.Write("Please input a valid move (not already made by the Player or the Computer) : ");
                     }
                     //also making sure that the move he put is possible to make
                     if (!possibleMoves.Contains(userChoiceToInt) || userChoiceToInt == cpuChoice)
                     {
-                        Console.WriteLine("Please input a valid move that is not already done");
+                        Console.Write("Please input a valid move that is not already done : ");
                         continue; 
                     }
 
@@ -77,7 +79,9 @@ namespace App
                         || (boardLine1[0] == "X" && boardLine2[1] == "X" && boardLine3[2] == "X"))
                     {
                         Console.Clear();
+                        Console.WriteLine("----------------");
                         Console.WriteLine("You won!");
+                        Console.WriteLine("----------------");
                         boardPrinter(boardLine1, boardLine2, boardLine3);
                         playerHasWon = true;
                     }
@@ -89,9 +93,11 @@ namespace App
                         && cpuHasWon == false && playerHasWon == false)
                     {
                         Console.Clear();
+                        Console.WriteLine("----------------");
                         Console.WriteLine("Tie !");
+                        Console.WriteLine("----------------");
                         boardPrinter(boardLine1, boardLine2, boardLine3);
-                        onPlay = false;
+                        break;
                     }                   
                 if(playerHasWon) {
                     break;
@@ -100,7 +106,8 @@ namespace App
                 // clearing the console for better gaming experience
                 Console.Clear();
                 Console.WriteLine("----------------");
-                Console.WriteLine("The computer made it's move");
+                Console.WriteLine("The computer made it's move, your turn !");
+                Console.WriteLine("----------------");
                 //cpu's move will be a random number
                 Random rnd = new Random();
                 cpuChoice = rnd.Next(1, 10);
@@ -139,7 +146,9 @@ namespace App
                     || (boardLine1[0] == "O" && boardLine2[1] == "O" && boardLine3[2] == "O"))
                 {
                     Console.Clear();
+                    Console.WriteLine("----------------");
                     Console.WriteLine("The Computer Won!");
+                    Console.WriteLine("----------------");
                     boardPrinter(boardLine1, boardLine2, boardLine3);
                     cpuHasWon = true;
                 }
@@ -149,9 +158,11 @@ namespace App
                         && cpuHasWon == false && playerHasWon == false)
                 {
                     Console.Clear();
+                    Console.WriteLine("----------------");
                     Console.WriteLine("Tie !");
+                    Console.WriteLine("----------------");
                     boardPrinter(boardLine1, boardLine2, boardLine3);
-                    onPlay = false;
+                    break;
                 }
 
                 if(cpuHasWon) {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\karam\\Desktop\\myc#consoleapps\\tictactoe\\programmation.csproj": {}
+    "C:\\Users\\karam\\Desktop\\myc#consoleapps\\tictactoe\\programmation.csproj": {}
   },
   "projects": {
-    "c:\\Users\\karam\\Desktop\\myc#consoleapps\\tictactoe\\programmation.csproj": {
+    "C:\\Users\\karam\\Desktop\\myc#consoleapps\\tictactoe\\programmation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\karam\\Desktop\\myc#consoleapps\\tictactoe\\programmation.csproj",
+        "projectUniqueName": "C:\\Users\\karam\\Desktop\\myc#consoleapps\\tictactoe\\programmation.csproj",
         "projectName": "programmation",
-        "projectPath": "c:\\Users\\karam\\Desktop\\myc#consoleapps\\tictactoe\\programmation.csproj",
+        "projectPath": "C:\\Users\\karam\\Desktop\\myc#consoleapps\\tictactoe\\programmation.csproj",
         "packagesPath": "C:\\Users\\karam\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\karam\\Desktop\\myc#consoleapps\\tictactoe\\obj\\",
+        "outputPath": "C:\\Users\\karam\\Desktop\\myc#consoleapps\\tictactoe\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
